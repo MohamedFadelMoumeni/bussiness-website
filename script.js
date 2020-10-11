@@ -6,6 +6,9 @@ const partenairesElement = document.getElementById('partenairesElement');
 const affiliationElement = document.getElementById('affiliationElement');
 const sitesElement = document.getElementById('sitesElement');
 const backToTop = document.querySelector('.back-to-top');
+const menu = document.querySelector('.menu');
+const menuResponsiveElement = document.querySelector('.menu-responsive');
+
 //Show & Hide Cards
 function showHideCards(arrayToShow, arrayToHide = []) {
     arrayToShow.forEach(element => {
@@ -40,4 +43,14 @@ window.addEventListener('scroll', () => {
         backToTop.classList.add('hidden');
     }
 });
+menu.addEventListener('click', () => {
+    menu.classList.toggle("change");
+    menuResponsiveElement.classList.toggle('hidden');
+});
+window.addEventListener('click', (e) => {
+    if (e.target === menuResponsiveElement) {
+        menuResponsiveElement.classList.add('hidden');
+        menu.classList.toggle("change");
+    }
+})
 
